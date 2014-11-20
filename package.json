@@ -1,0 +1,21 @@
+{
+  "name": "disruptionCongress",
+  "version": "1.0.0",
+  "description": "Web of Disruption Congress event",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StartupPlace/disruptionCongress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StartupPlace/disruptionCongress/issues"
+  },
+  "homepage": "https://github.com/StartupPlace/disruptionCongress",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "^4.10.2"
+  }
+}
