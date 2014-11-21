@@ -2,9 +2,9 @@ $(document).ready(function() {
     scrollNavigation();
 
     $('.countdown').final_countdown({
-        'start':    1362139200,
-        'end':      1388461320,
-        'now':      1388361319,
+        'start':    1416529080,
+        'end':      1418461200,
+        'now':      1416529080,
         seconds: {
             borderColor: '#8ef58e',
             borderWidth: '4'
