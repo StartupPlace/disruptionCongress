@@ -1052,7 +1052,7 @@
                 <div class="item col-md-8">
                     <h2>Any questions? Drop us a note</h2>
 
-                    <form class="contact-form footer-form" method="post" action="contact.php">
+                    <form action="/messages" id="formMessage" class="contact-form footer-form">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="control-group">
@@ -1092,6 +1092,8 @@
             </div><!-- /.row -->
         </div><!-- /.footer-inner -->
     </div><!-- /.footer -->
+
+    <div id="result"></div>
 
     <div id="map"></div><!-- /#map -->
 
@@ -1142,6 +1144,32 @@
 <script type="text/javascript" src="assets/js/bootstrap/scrollspy.js"></script>
 
 <script type="text/javascript" src="assets/js/infine.js"></script>
+
+
+<script>
+    // Attach a submit handler to the form
+    $( "#formMessage" ).submit(function( event ) {
+
+        // Stop form from submitting normally
+        event.preventDefault();
+
+        // Get some values from elements on the page:
+        var $form = $( this ),
+                nameText = $form.find( "input[name='name']" ).val(),
+                emailText = $form.find( "input[name='email']" ).val(),
+                messageText = $form.find( "textarea[name='message']" ).val(),
+                url = 'http://localhost:3000/messages';
+
+        // Send the data using post
+        var posting = $.post( url, { name: nameText, email: emailText, message: messageText },'JSON');
+
+        // Put the results in a div
+        posting.done(function( data ) {
+            var content = $( data ).find( "#content" );
+            $( "#result" ).empty().append( content );
+        });
+    });
+</script>
 
 </body>
 </html>

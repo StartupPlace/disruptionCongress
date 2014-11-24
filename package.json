@@ -16,6 +16,9 @@
   "homepage": "https://github.com/StartupPlace/disruptionCongress",
   "dependencies": {
     "ejs": "^1.0.0",
-    "express": "^4.10.2"
+    "express": "^4.10.2",
+    "mongoose": "^3.8.19",
+    "method-override": "^2.1.2",
+    "body-parser": "^1.5.1"
   }
 }
