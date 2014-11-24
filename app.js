@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 
-mongoose.connect('mongodb://localhost/dc');
+mongoose.connect('mongodb://heroku_app31909392:6768oilqcc3s0glbr839rbkbep@ds053310.mongolab.com:53310/heroku_app31909392');
 
 var schemaMessage = new Schema({
     name:    {type: String, trim: true},
