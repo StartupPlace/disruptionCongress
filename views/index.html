@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="assets/fancybox/jquery.fancybox.css" type="text/css">
     <link rel="stylesheet" href="assets/css/infine.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <!--[if lt IE 9]>
        	<link rel="stylesheet" id="ie8-css"  href="assets/css/ie8.css" type="text/css" media="all">
@@ -903,8 +904,21 @@
                     </address>
                 </div><!-- /.item -->
 
-                <div class="item col-md-7">
+                <div id="div-formulario" class="item col-md-7">
                     <h2>Si tienes alguna sugerencia, idea, queja o predicción déjanos una nota</h2>
+                    <div class="successForm">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" onclick="$('.alert').hide()">x</button>
+                            <strong>Gracias!</strong> Pronto nos comunicaremos contigo.
+                        </div>
+                    </div>
+
+                    <div class="errorForm">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" onclick="$('.alert').hide()">x</button>
+                            <strong>Uy!</strong> Hubo un problema, vuelva a intentarlo en otro momento.
+                        </div>
+                    </div>
 
                     <form id="formMessage" class="contact-form footer-form">
                         <div class="row">
@@ -1011,18 +1025,35 @@
         var $form = $( this ),
                 nameText = $form.find( "input[name='name']" ).val(),
                 emailText = $form.find( "input[name='email']" ).val(),
-                messageText = $form.find( "textarea[name='message']" ).val(),
-                url = '/messages';
+                messageText = $form.find( "textarea[name='message']" ).val();
 
-        // Send the data using post
-        var posting = $.post( url, { name: nameText, email: emailText, message: messageText },'JSON');
 
-        // Put the results in a div
-        posting.done(function( data ) {
-            var content = $( data ).find( "#content" );
-            $( "#result" ).empty().append( content );
+        var data ={
+            'name' : nameText,
+            'email' : emailText,
+            'message': messageText
+        }
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/messages',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(){
+                $(".errorForm").hide();
+                $(".successForm").show();
+
+                $("#div-formulario").find('form')[0].reset();
+            },
+            error: function(){
+                $(".successForm").hide();
+                $(".errorForm").show();
+            }
         });
-    });
+
+   });
 </script>
 
 <script>
