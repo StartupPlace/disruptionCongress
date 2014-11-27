@@ -1012,7 +1012,7 @@
                 nameText = $form.find( "input[name='name']" ).val(),
                 emailText = $form.find( "input[name='email']" ).val(),
                 messageText = $form.find( "textarea[name='message']" ).val(),
-                url = 'http://localhost:3000/messages';
+                url = '/messages';
 
         // Send the data using post
         var posting = $.post( url, { name: nameText, email: emailText, message: messageText },'JSON');
@@ -1043,7 +1043,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:3000/subscribers',
+            url: '/subscribers',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data),
             dataType: 'json',
