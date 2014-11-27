@@ -64,9 +64,12 @@
                     <li class="first-slide" data-transition="fade">
                         <img src="assets/pictures/background-conference-1.jpg" data-fullwidthcentering="on">
 
-                        <div class="caption sfr caption-main" data-x="center" data-y="200" data-speed="900" data-start="0" data-easing="easeOutBack" fullwidthcentering="on">
+
+
+                        <div class="caption sfr caption-main" data-x="center" data-y="100" data-speed="900" data-start="0" data-easing="easeOutBack" fullwidthcentering="on">
                             <div class="header-item">
                                 <div>
+                                    <img src="img/logo_web.png">
                                     <h1>Startup Congress 2014</h1>
                                     <h4>Preparándonos para destilar tecnología</h4>
                                 </div><!-- /.title -->
@@ -130,27 +133,13 @@
 
                         </div><!-- /.caption -->
                     </li>
-
-                    <li class="third-slide" data-transition="fade">
-                        <img src="assets/pictures/background-conference-3.jpg" fullwidthcentering="on">
-
-                        <div class="caption sfr caption-main" data-x="center" data-y="300" data-speed="900" data-start="0" data-easing="easeOutBack">
-                            <div class="header-item">
-                                <div>
-                                    <h1>No pierdas<br>esta oportunidad anual</h1>
-                                </div>
-                            </div><!-- /.header-item -->
-                        </div>
-
-                        <div class="caption fade" data-x="500" data-y="500" data-speed="100" data-start="0" data-easing="fade">
-                            <div class="last-seats"><a href="#nav-pricing" class="roll"><p>Inscríbete</br>ya!</p></a></div>
-                        </div>                        
-                    </li>       
                 </ul><!-- /.revolution -->
            </div>        
         </div>
     </div><!-- /.header -->
 </div><!-- /.header-wrapper -->
+
+
 
 <div id="nav-subscribe" class="subscribe-wrapper">
     <div class="subscribe">
@@ -161,9 +150,9 @@
 
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
-                            <form method="post" action="subscribe.php">
+                            <form id="formSubscribers">
                                 <div>
-                                    <input type="email" class="subscription-field" name="subscribe" placeholder="Tu e-mail" required="required">
+                                    <input type="email" class="subscription-field" name="subscriber" placeholder="Tu e-mail" required="required">
 
                                     <button>
                                         <span class="icon-normal-right-arrow-small"></span>
@@ -173,7 +162,7 @@
 
                             <div class="success">
                                 <p>
-                                    Thank you for your interest.<br>
+                                    Gracias por tu interés.<br>
                                     <i class="icon icon-normal-heart-rounded"></i>
                                 </p>
                             </div><!-- /.success -->
@@ -296,7 +285,7 @@
                         <div class="col-sm-2">
                             <div class="outer-border item">
                                 <div class="middle-border">
-                                    <img src="assets/pictures/speakers-3.jpg" class="img-circle inner-border">
+                                    <img src="img/speakers/speaker-astuvilca.jpg" class="img-circle inner-border">
                                 </div>
                             </div>
                         </div><!-- /.col-md-2 -->
@@ -565,7 +554,7 @@
 
                         <div class="col-sm-7">
                             <p class="name">George Mejía</p>
-                            <p class="company">Okupa coworking</p>
+                            <p class="company">Okupa</p>
                             <p class="talk-title">#Hub: Creamos experiencias para productos disruptivos</p>
                             <p class="time"><span class="time-start">3:40</span> - 4:10</p>
                         </div><!-- /.col-md-7 -->
@@ -852,20 +841,12 @@
             <h2>Nuestros media partners</h2>
 
             <div class="row">
-                <div class="col-sm-3 col-xs-6 center">
-                    <a href="http://themeforest.net/"><img class="our-partners-logo" src="assets/pictures/logo-theme-forest.png" alt=""></a>
+                <div class="col-sm-3 col-sm-offset-3 col-xs-6 center">
+                    <a href="http://themeforest.net/"><img class="our-partners-logo" src="img/mediapartners/initec_logo.png" height="200px" alt=""></a>
                 </div><!-- /.span3 -->
 
                 <div class="col-sm-3 col-xs-6 center">
-                    <a href="http://graphicriver.net/"><img class="our-partners-logo" src="assets/pictures/logo-graphic-river.png" alt=""></a>
-                </div><!-- /.span3 -->
-
-                <div class="col-sm-3 col-xs-6 center">
-                    <a href="http://3docean.net/"><img class="our-partners-logo" src="assets/pictures/logo-3d-ocean.png" alt=""></a>
-                </div><!-- /.span3 -->
-
-                <div class="col-sm-3 col-xs-6 center">
-                    <a href="http://photodune.net/"><img class="our-partners-logo" src="assets/pictures/logo-photo-dune.png" alt=""></a>
+                    <a href="http://graphicriver.net/"><img class="our-partners-logo" src="img/mediapartners/ptm_logo.png" height="200px" alt=""></a>
                 </div><!-- /.span3 -->
             </div><!-- /.row -->
         </div><!-- /.our-partners-inner -->
@@ -925,7 +906,7 @@
                 <div class="item col-md-7">
                     <h2>Si tienes alguna sugerencia, idea, queja o predicción déjanos una nota</h2>
 
-                    <form action="/messages" id="formMessage" class="contact-form footer-form">
+                    <form id="formMessage" class="contact-form footer-form">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="control-group">
@@ -966,7 +947,7 @@
         </div><!-- /.footer-inner -->
     </div><!-- /.footer -->
 
-    <div id="result"></div>
+    <div class="result"></div>
 
     <div id="map"></div><!-- /#map -->
 
@@ -1040,6 +1021,35 @@
         posting.done(function( data ) {
             var content = $( data ).find( "#content" );
             $( "#result" ).empty().append( content );
+        });
+    });
+</script>
+
+<script>
+    // Attach a submit handler to the form
+    $( "#formSubscribers" ).submit(function( event ) {
+
+        // Stop form from submitting normally
+        event.preventDefault();
+
+        // Get some values from elements on the page:
+        var $form = $( this ),
+                subscriberText = $form.find( "input[name='subscriber']" ).val();
+
+        var data ={
+            'subscriber' : subscriberText
+        }
+
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/subscribers',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(){
+                $(".success").show()
+             }
         });
     });
 </script>
