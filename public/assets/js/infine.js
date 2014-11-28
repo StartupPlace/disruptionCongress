@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('.countdown').final_countdown({
         'start':    1416529080,
         'end':      1418461200,
-        'now':      1416529080,
+        'now':      new Date().getTime()/1000,
         seconds: {
             borderColor: '#8ef58e',
             borderWidth: '4'
@@ -134,7 +134,7 @@ $(document).ready(function() {
         mapTypeControlOptions: {
             mapTypeIds: ['Styled']
         },
-        center: new google.maps.LatLng(-7.245217594087794, 112.74455556869509),
+        center: new google.maps.LatLng(-12.057677, -77.081516),
         zoom: 16,
         disableDefaultUI: true,
         mapTypeId: 'Styled'
@@ -143,7 +143,7 @@ $(document).ready(function() {
     var map = new google.maps.Map(div, options);
 
     new google.maps.Marker({
-        position: new google.maps.LatLng(-7.245217594087794, 112.74455556869509),
+        position: new google.maps.LatLng(-12.057677, -77.081516),
         map: map
     });
 
